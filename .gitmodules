@@ -1,0 +1,6 @@
+[submodule "hermes"]
+	path = hermes
+	url = https://github.com/wardle/hermes
+[submodule "hades"]
+	path = hades
+	url = https://github.com/wardle/hades
