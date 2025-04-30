@@ -3,7 +3,7 @@ version: '3.9'
 services:
   hermes:
     container_name: hermes
-    image: lamuri/snomed-tools:v1.0.0
+    image: lamuri/snomed-tools:latest
     volumes:
       - hades-data:/data
     entrypoint: ["./build-db.sh"]
@@ -12,7 +12,7 @@ services:
 
   hades:
     container_name: hades
-    image: lamuri/snomed-tools:v1.0.0
+    image: lamuri/snomed-tools:latest
     volumes:
       - hades-data:/data
     ports:
