@@ -13,6 +13,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Check submodule content
+        run: |
+          git submodule status
+          ls -lh
 
       - name: Set tag version (with fallback for manual run)
         id: set_tag
