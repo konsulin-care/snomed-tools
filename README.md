@@ -27,7 +27,7 @@ You do **not** need to clone the repository. You can just download or create the
 Before starting the services, you need the SNOMED CT RF2 data on your local machine. The data should be placed in the correct directory before starting the services.
 
 - Download the SNOMED CT RF2 data.
-- Make sure the RF2 data is available in a directory (e.g., `/path/to/snomed-rf2`).
+- Make sure the RF2 data is available in a directory (e.g., `/path/to/snomed-rf`).
 
 ### 3. Start the Services
 
@@ -52,18 +52,20 @@ Once the services are up and running, you can copy the SNOMED CT RF2 data into t
 To copy the SNOMED CT RF2 data into the container, use the following command:
 
 ```sh
-docker cp /path/to/snomed-rf2 hermes:/data/snomed-rf2
+docker cp /path/to/snomed-rf hermes:/data/snomed-rf
 ```
 
-Ensure that the `/path/to/snomed-rf2` is the actual path to the RF2 data on your local machine.
+Ensure that the `/path/to/snomed-rf` is the actual path to the RF2 data on your local machine.
 
 ### 5. Access the Hades API
 
 Once the **Hermes** container finishes its task (importing and indexing), the **Hades** container will automatically start, and the SNOMED CT API will be available on port `8080`. You can access it by navigating to:
 
 ```sh
-http://localhost:8080
+curl -X GET "http://localhost:8080/fhir/metadata"
 ```
+
+This will show the capability statement of the terminology server.
 
 ### 6. Stopping the Services
 
